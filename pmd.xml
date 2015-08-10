@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pmd>
+<file name="Gruntfile.js">
+    <violation
+      beginline="0"
+      class="Gruntfile.js"
+      method=""
+      priority="warning"
+      rule="Maintainability">
+      Code is difficult to maintain: 102.41
+    </violation>
+</file>
+
+<file name="tasks/grunt-complexity-report.js">
+    <violation
+      beginline="99"
+      class="tasks/grunt-complexity-report.js"
+      method="reportViolations"
+      priority="info"
+      rule="Complexity">
+      Halstead difficulty is high: 9.67
+    </violation>
+
+    <violation
+      beginline="153"
+      class="tasks/grunt-complexity-report.js"
+      method="&lt;anonymous&gt;"
+      priority="info"
+      rule="Complexity">
+      Halstead difficulty is high: 8.02
+    </violation>
+
+    <violation
+      beginline="0"
+      class="tasks/grunt-complexity-report.js"
+      method=""
+      priority="info"
+      rule="Maintainability">
+      Code is difficult to maintain: 123.41
+    </violation>
+</file>
+
+<file name="tasks/reporters/Console/index.js">
+    <violation
+      beginline="0"
+      class="tasks/reporters/Console/index.js"
+      method=""
+      priority="info"
+      rule="Maintainability">
+      Code is difficult to maintain: 126.38
+    </violation>
+</file>
+
+<file name="tasks/reporters/XML/index.js">
+    <violation
+      beginline="8"
+      class="tasks/reporters/XML/index.js"
+      method="init"
+      priority="info"
+      rule="Complexity">
+      Halstead difficulty is high: 10.8
+    </violation>
+
+    <violation
+      beginline="0"
+      class="tasks/reporters/XML/index.js"
+      method=""
+      priority="info"
+      rule="Maintainability">
+      Code is difficult to maintain: 127.22
+    </violation>
+</file>
+
+<file name="tasks/reporters/multi.js"></file>
+
+<file name="tasks/reporters/PmdXML/index.js"></file>
+
+</pmd>

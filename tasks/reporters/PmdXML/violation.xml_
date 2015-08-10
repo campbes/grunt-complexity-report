@@ -1,0 +1,11 @@
+<file name="<%= filepath %>"><% violations.forEach(function(data){ %>
+    <violation
+      beginline="<%=data.line %>"
+      class="<%= data.filepath %>"
+      method="<%= escape(data.name) %>"
+      priority="<%= data.severity %>"
+      rule="<%= data.rule %>">
+      <%= data.message %>: <%= data.value %>
+    </violation>
+<% }) %></file>
+

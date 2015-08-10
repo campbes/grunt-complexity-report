@@ -1,0 +1,1 @@
+[<%= severity %>] <%= filepath %> is difficult to maintain: <%= value %>
