@@ -1,6 +1,6 @@
 {
   "name": "grunt-complexity-report",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Run complexity-report during grunt build",
   "main": "grunt-complexity-report.js",
   "dependencies": {
