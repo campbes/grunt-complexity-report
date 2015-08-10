@@ -3,7 +3,7 @@
       beginline="<%=data.line %>"
       class="<%= data.filepath %>"
       method="<%= escape(data.name) %>"
-      priority="<%= data.severity %>"
+      priority="<%= data.priority %>"
       rule="<%= data.rule %>">
       <%= data.message %>: <%= data.value %>
     </violation>
