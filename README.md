@@ -4,7 +4,21 @@ Run complexity-report against javascript source code from grunt build.
 
 ## Code Example
 
-
+    grunt.loadNpmTasks('grunt-complexity-report');
+     
+    grunt.initConfig({
+    
+      complexity : {
+        js: {
+          files : [{ cwd: '.', src: ['/**/*.js'], expand : true}],
+          exclude: [],
+          options: {
+            pmdXML: '/pmd.xml'
+          }
+        }
+      };
+      
+    });
 
 ## Motivation
 
