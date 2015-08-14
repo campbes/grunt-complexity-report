@@ -151,13 +151,13 @@ module.exports = function(grunt) {
   };
 
   grunt.registerMultiTask('complexity', 'Determines complexity of code.', function() {
-    var files = this.filesSrc || grunt.file.expandFiles(this.file.src);
+    var files = this.filesSrc || grunt.file.expand(this.file.src);
     var excluded = this.data.exclude;
 
     // Exclude any unwanted files from 'files' array
     if (excluded) {
-      grunt.file.expand(excluded).forEach(function(){
-        files.splice(files.indexOf(this), 1);
+      grunt.file.expand(excluded).forEach(function(ex){
+        files.splice(files.indexOf(ex), 1);
       });
     }
 
