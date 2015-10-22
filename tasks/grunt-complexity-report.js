@@ -5,6 +5,7 @@ module.exports = function(grunt) {
 
   var MultiReporter = require('./reporters/multi')(grunt);
   var ConsoleReporter = require('./reporters/Console')(grunt);
+  var DotsReporter = require('./reporters/Dots')(grunt);
   var XMLReporter = require('./reporters/XML')(grunt);
   var pmdReporter = require('./reporters/PmdXML')(grunt, XMLReporter);
 
@@ -27,9 +28,14 @@ module.exports = function(grunt) {
 
     buildReporter: function(files, options) {
       var reporter = new MultiReporter(files, options);
-      reporter.addReporter(ConsoleReporter);
-      if(options.pmdXML) {
+      if (options.pmdXML) {
         reporter.addReporter(pmdReporter);
+      }
+      if (options.dots) {
+        reporter.addReporter(DotsReporter);
+      }
+      if (!options.dots && !options.pmdXML) {
+        reporter.addReporter(ConsoleReporter);
       }
       return reporter;
     },
