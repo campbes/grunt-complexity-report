@@ -1,9 +1,12 @@
 module.exports = function(grunt) {
+	var headTpl = require('fs').readFileSync(__dirname + '/head.tpl').toString();
+	var tailTpl = require('fs').readFileSync(__dirname + '/tail.tpl').toString();
+	var template = grunt.template.process;
 	var icons = {
 		error: '⁂ ',
 		info: '*',
 		warning: '⁑'
-	}
+	};
 
 	var counters = {
 		error: 0,
@@ -12,7 +15,26 @@ module.exports = function(grunt) {
 		warning: 0,
 		complex: 0,
 		maintain: 0
-        }
+        };
+
+	/**
+	 * @param {*} val - value to convert to string and pad up to #len spaces on left, for longer string last #len symbols will be taken
+	 * @param {Number} len - padding size
+	 * @returns {String} padded/cropped string
+	 */
+	function pad (val, len) {
+		return String(Array(len+1).join(' ') + val).slice(-len);
+	}
+
+	/**
+	 * @param {...*} - list of args to calculate max string length
+	 * @returns {Number} max string length
+	 */
+	function maxlen () {
+		return Array.prototype.slice.call(arguments).reduce(function(p, v) {
+			return Math.max(String(v).length, p);
+		}, 0);
+	}
 
 	var DotsReporter = function(filenames, options) {
 		this.options = options;
@@ -40,9 +62,7 @@ module.exports = function(grunt) {
 		},
 
 		start: function() {
-			grunt.log.writeln('======================================================================'.green);
-			grunt.log.writeln(' Complexity report '.green);
-			grunt.log.writeln('——————————————————————————————————————————————————————————————————————'.green);
+			grunt.log.writeln(headTpl.green);
 			counters.error = 0;
 			counters.info = 0;
 			counters.total = 0;
@@ -52,21 +72,22 @@ module.exports = function(grunt) {
 		},
 
 		finish: function() {
-			grunt.log.writeln(' ');
-			grunt.log.writeln('——————————————————————————————————————————————————————————————————————'.green);
-			grunt.log.write  (' Low: '.green + String('   ' + counters.info).slice(-3).grey);
-			grunt.log.write          ('        High: '.green + String('   ' + counters.warning).slice(-3).yellow);
-			grunt.log.write                          ('             Critical: '.green + String('   ' + counters.error).slice(-3).red);
-			grunt.log.writeln(' ');
-			grunt.log.write((' Complexity: ' + String('   ' + counters.complex).slice(-3)).green);
-			grunt.log.write                 ((' Maintainability: ' + String('   ' + counters.maintain).slice(-3)).green);
-			grunt.log.writeln(' ');
-			grunt.log.writeln('======================================================================'.green);
+			var len = maxlen(counters.info, counters.warning, counters.error, counters.complex, counters.maintain);
+			var data = {
+				info: pad(counters.info, len),
+				warning: pad(counters.warning, len),
+				error: pad(counters.error, len),
+				complex: pad(counters.complex, len),
+				maintain: pad(counters.maintain, len)
+			};
+			var message = template(tailTpl, {
+				data: data
+			});
+			grunt.log.writeln(message.green);
 		},
 
 		log: function(message, display) {
-//			grunt.log.write(counters.total);
-			if (!(counters.total % 60)) {
+			if ((counters.total % 60) === 0) {
 				grunt.log.writeln(' ');
 			}
 			message = message || '';
