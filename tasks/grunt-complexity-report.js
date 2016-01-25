@@ -38,7 +38,7 @@ module.exports = function(grunt) {
       if (options.teamcity) {
         reporter.addReporter(teamCityReporter);
       }
-      if (!options.dots && !options.pmdXML) {
+      if (!options.dots && !options.pmdXML && !options.teamcity) {
         reporter.addReporter(ConsoleReporter);
       }
       return reporter;
