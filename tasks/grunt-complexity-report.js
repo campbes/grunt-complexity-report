@@ -8,6 +8,7 @@ module.exports = function(grunt) {
   var DotsReporter = require('./reporters/Dots')(grunt);
   var XMLReporter = require('./reporters/XML')(grunt);
   var pmdReporter = require('./reporters/PmdXML')(grunt, XMLReporter);
+  var teamCityReporter = require('./reporters/TeamCity')(grunt, XMLReporter);
 
 
   var Complexity = {
@@ -34,7 +35,10 @@ module.exports = function(grunt) {
       if (options.dots) {
         reporter.addReporter(DotsReporter);
       }
-      if (!options.dots && !options.pmdXML) {
+      if (options.teamcity) {
+        reporter.addReporter(teamCityReporter);
+      }
+      if (!options.dots && !options.pmdXML && !options.teamcity) {
         reporter.addReporter(ConsoleReporter);
       }
       return reporter;

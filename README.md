@@ -13,7 +13,8 @@ Run complexity-report against javascript source code from grunt build.
           files : [{ cwd: '.', src: ['/**/*.js'], expand : true}],
           exclude: [],
           options: {
-            pmdXML: '/pmd.xml'
+            pmdXML: '/pmd.xml',
+            teamcity: true  //send buildStatisticValue to TeamCity
           }
         }
       };
