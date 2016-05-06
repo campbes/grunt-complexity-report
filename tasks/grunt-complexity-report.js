@@ -3,11 +3,11 @@ var cr = require('complexity-report');
 
 module.exports = function(grunt) {
 
-  var MultiReporter = require('./reporters/multi')(grunt);
+  var MultiReporter = require('violation-reporter')(grunt);
   var ConsoleReporter = require('./reporters/Console')(grunt);
   var DotsReporter = require('./reporters/Dots')(grunt);
-  var XMLReporter = require('./reporters/XML')(grunt);
-  var pmdReporter = require('./reporters/PmdXML')(grunt, XMLReporter);
+  var XMLReporter = require('violation-reporter/tasks/XML')(grunt);
+  var pmdReporter = require('violation-reporter/tasks/PmdXML')(grunt, XMLReporter);
   var teamCityReporter = require('./reporters/TeamCity')(grunt, XMLReporter);
 
 

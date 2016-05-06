@@ -11,9 +11,58 @@
     </violation>
 </file>
 
+<file name="tasks/reporters/Dots/index.js">
+    <violation
+      beginline="74"
+      class="tasks/reporters/Dots/index.js"
+      method="finish"
+      priority="5"
+      rule="Complexity">
+      Halstead difficulty is high: 8.33
+    </violation>
+
+    <violation
+      beginline="0"
+      class="tasks/reporters/Dots/index.js"
+      method=""
+      priority="3"
+      rule="Maintainability">
+      Code is difficult to maintain: 117.67
+    </violation>
+</file>
+
+<file name="tasks/reporters/TeamCity/index.js">
+    <violation
+      beginline="58"
+      class="tasks/reporters/TeamCity/index.js"
+      method="finish"
+      priority="5"
+      rule="Complexity">
+      Halstead difficulty is high: 9.79
+    </violation>
+
+    <violation
+      beginline="0"
+      class="tasks/reporters/TeamCity/index.js"
+      method=""
+      priority="5"
+      rule="Maintainability">
+      Code is difficult to maintain: 120.07
+    </violation>
+</file>
+
 <file name="tasks/grunt-complexity-report.js">
     <violation
-      beginline="99"
+      beginline="30"
+      class="tasks/grunt-complexity-report.js"
+      method="buildReporter"
+      priority="5"
+      rule="Complexity">
+      Halstead difficulty is high: 11.63
+    </violation>
+
+    <violation
+      beginline="109"
       class="tasks/grunt-complexity-report.js"
       method="reportViolations"
       priority="5"
@@ -22,12 +71,12 @@
     </violation>
 
     <violation
-      beginline="153"
+      beginline="163"
       class="tasks/grunt-complexity-report.js"
       method="&lt;anonymous&gt;"
       priority="5"
       rule="Complexity">
-      Halstead difficulty is high: 8.02
+      Halstead difficulty is high: 8.39
     </violation>
 
     <violation
@@ -36,18 +85,7 @@
       method=""
       priority="5"
       rule="Maintainability">
-      Code is difficult to maintain: 123.41
-    </violation>
-</file>
-
-<file name="tasks/reporters/PmdXML/index.js">
-    <violation
-      beginline="0"
-      class="tasks/reporters/PmdXML/index.js"
-      method=""
-      priority="5"
-      rule="Maintainability">
-      Code is difficult to maintain: 124.33
+      Code is difficult to maintain: 121.66
     </violation>
 </file>
 
@@ -61,27 +99,5 @@
       Code is difficult to maintain: 126.38
     </violation>
 </file>
-
-<file name="tasks/reporters/XML/index.js">
-    <violation
-      beginline="8"
-      class="tasks/reporters/XML/index.js"
-      method="init"
-      priority="5"
-      rule="Complexity">
-      Halstead difficulty is high: 10.8
-    </violation>
-
-    <violation
-      beginline="0"
-      class="tasks/reporters/XML/index.js"
-      method=""
-      priority="5"
-      rule="Maintainability">
-      Code is difficult to maintain: 127.22
-    </violation>
-</file>
-
-<file name="tasks/reporters/multi.js"></file>
 
 </pmd>
