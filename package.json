@@ -1,6 +1,6 @@
 {
   "name": "grunt-complexity-report",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0",
   "description": "Run complexity-report during grunt build",
   "author": {
     "name": "Stuart Campbell",
@@ -26,7 +26,7 @@
     "fs-extra": "^0.23.0",
     "grunt": ">=0.4.x",
     "teamcity-service-messages": "^0.1.6",
-    "violation-reporter": "0.0.0-beta.1"
+    "violation-reporter": "0.0.1"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "^0.11.2"
